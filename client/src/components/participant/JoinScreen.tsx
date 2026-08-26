@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { Gamepad2, ArrowRight } from 'lucide-react';
+import { useSearchParams, Link } from 'react-router-dom';
+import { Gamepad2, ArrowRight, Shield } from 'lucide-react';
 
 interface JoinScreenProps {
   onJoin: (gameCode: string, name: string) => void;
@@ -19,7 +19,7 @@ export const JoinScreen: React.FC<JoinScreenProps> = ({ onJoin, error }) => {
   };
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center p-4">
+    <div className="min-h-[80vh] flex flex-col items-center justify-center p-4">
       <div className="glass-card max-w-md w-full p-8 border-cyan-500/40 text-center relative overflow-hidden shadow-2xl">
         <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center mx-auto mb-4 shadow-xl shadow-cyan-500/30">
           <Gamepad2 className="w-8 h-8 text-black font-extrabold" />
@@ -77,6 +77,14 @@ export const JoinScreen: React.FC<JoinScreenProps> = ({ onJoin, error }) => {
           </button>
         </form>
       </div>
+
+      {/* Host Admin Link for quick navigation */}
+      <Link
+        to="/host"
+        className="text-xs text-slate-500 hover:text-cyan-400 font-mono inline-flex items-center gap-1.5 mt-6 transition-colors"
+      >
+        <Shield className="w-3.5 h-3.5 text-purple-400" /> Switch to Host Admin Dashboard
+      </Link>
     </div>
   );
 };
