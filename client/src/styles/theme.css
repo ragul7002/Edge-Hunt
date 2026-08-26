@@ -1,0 +1,240 @@
+/* AI FRONTIERS GAME ZONE - FUTURISTIC STYLING SYSTEM */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap');
+
+:root {
+  --bg-dark: #07090e;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --bg-card-hover: rgba(30, 41, 59, 0.85);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --border-cyan: rgba(0, 243, 255, 0.4);
+  
+  --color-cyan: #00f3ff;
+  --color-purple: #8a2be2;
+  --color-pink: #ff007f;
+  --color-emerald: #00ff88;
+  --color-amber: #ffaa00;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Orbitron', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(0, 243, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(138, 43, 226, 0.08) 0%, transparent 40%);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  border-color: var(--border-cyan);
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Glowing Neon Elements */
+.neon-cyan {
+  color: var(--color-cyan);
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+.neon-purple {
+  color: var(--color-purple);
+  text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+.neon-border-cyan {
+  border-color: var(--color-cyan) !important;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}
+
+/* Custom Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #00f3ff 0%, #0088ff 100%);
+  color: #000;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(0, 243, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(0, 243, 255, 0.5);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border-glass);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-danger {
+  background: rgba(255, 0, 127, 0.15);
+  color: var(--color-pink);
+  border: 1px solid rgba(255, 0, 127, 0.4);
+  padding: 10px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-danger:hover {
+  background: rgba(255, 0, 127, 0.3);
+}
+
+/* Touch Option Cards */
+.option-card {
+  background: rgba(30, 41, 59, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.option-card:hover:not(.locked) {
+  border-color: var(--color-cyan);
+  transform: scale(1.02);
+  background: rgba(0, 243, 255, 0.1);
+  box-shadow: 0 0 25px rgba(0, 243, 255, 0.25);
+}
+
+.option-card.selected {
+  border-color: var(--color-cyan);
+  background: rgba(0, 243, 255, 0.2);
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.4);
+}
+
+.option-card.correct {
+  border-color: var(--color-emerald) !important;
+  background: rgba(0, 255, 136, 0.2) !important;
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.5) !important;
+}
+
+.option-card.wrong {
+  border-color: var(--color-pink) !important;
+  background: rgba(255, 0, 127, 0.2) !important;
+  box-shadow: 0 0 20px rgba(255, 0, 127, 0.3) !important;
+}
+
+.option-card.locked {
+  cursor: default;
+}
+
+/* Animated Leaderboard Row Transitions */
+.leaderboard-row {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.leaderboard-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.score-pulse {
+  animation: pulseGlow 0.8s ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.15); filter: brightness(1.8); color: var(--color-cyan); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+
+/* Inputs & Selects */
+input[type="text"], input[type="number"], select, textarea {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-glass);
+  color: var(--text-main);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cyan);
+}

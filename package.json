@@ -1,0 +1,13 @@
+{
+  "name": "ai-frontiers-game-zone",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI Frontiers Game Zone - Interactive Image Quiz & Live Leaderboard Platform",
+  "scripts": {
+    "install:all": "npm install --prefix client && npm install --prefix server",
+    "build": "npm run install:all && npm run build --prefix client",
+    "start": "node server/index.js",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev"
+  }
+}
